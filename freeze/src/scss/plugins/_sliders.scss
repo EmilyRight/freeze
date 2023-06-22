@@ -1,0 +1,22 @@
+@import "swiper/swiper";
+
+.tag-cloud{background-color:$color-light0;margin-bottom: 1.8rem;
+  .swiper-container{padding: 3.8rem 6rem 3.4rem;
+    @media(max-width:767px){padding:2.8rem 1.5rem 2.9rem;
+      .swiper-button-next,.swiper-button-prev{display: none}
+    }
+  }
+  .swiper-slide{font-size: 2.2rem;line-height: 2.8rem;font-family:$font1;color: $color-dark;
+    display: inline-block;width:auto; cursor:pointer;
+    &--selected{font-family: $font1b;}
+    @media(max-width:767px){font-size: 16px;line-height: 22px;}
+  }
+  .swiper-button-next, .swiper-button-prev{background-image: none;background-color: $color-light0;
+    top:0;margin-top:0;height: 100%;width:6rem;display: flex;align-items: center;justify-content: center;
+    .ico{width: 1.7rem}
+  }
+  .swiper-button-next{right:0;}
+  .swiper-button-prev{left:0;
+    .ico{transform: rotate(-180deg)}
+  }
+}

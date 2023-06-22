@@ -1,0 +1,179 @@
+html {
+  min-height: 100%;
+  box-sizing: border-box;
+  font-size: 10px;
+  background: #1f2229;
+  scroll-behavior: smooth;
+}
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  min-width: 320px;
+  margin: 0;
+  background: inherit;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: none;
+}
+
+@import "vars";
+@import "base/base-reset";
+@import "typo";
+
+//LANDING STYLES
+body {
+  color: $color-dark;
+  background: inherit;
+  position: relative;
+  font: 1.6rem/1.375 tele2_short, sans-serif;
+  -webkit-text-size-adjust: none;
+  &.noscroll {
+    overflow: hidden !important;
+  }
+
+  .page {
+    padding-top: 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #101216;
+  }
+  .background-wrapper {
+    background-image: url(../img/page/ice-bg-large1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    @media (max-width: 600px) {
+      background-image: url(../img/page/ice-bg-mob.png);
+    }
+  }
+}
+
+.page {
+  transition: 0.2s;
+  position: relative;
+  &.freezed {
+    animation-name: blur;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+  }
+}
+.wow {
+  opacity: 0;
+  &.animated {
+    opacity: 1;
+  }
+  //@media all and(max-width:600px){opacity: 1}
+}
+.svgs {
+  height: 0;
+  visibility: hidden;
+  position: absolute;
+  z-index: -6;
+  pointer-events: none;
+}
+.container {
+  max-width: 84%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 18px;
+  padding-right: 18px;
+  @media all and (max-width: 1440px) {
+    max-width: 92%;
+  }
+  @media all and (max-width: 600px) {
+    max-width: 100%;
+  }
+}
+
+//@import "./bootstrap";
+@import "ui";
+@import "sections";
+@import "plugins/animate";
+
+/////// MQ /////
+@media (min-width: 1280px) {
+  html {
+    font-size: 9px;
+  }
+}
+@media (min-width: 1440px) {
+  html {
+    font-size: 10px;
+  }
+}
+@media (min-width: 1700px) {
+  html {
+    font-size: 12px;
+  }
+}
+@media (min-width: 2000px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media (min-width: 3000px) {
+  html {
+    font-size: 20px;
+  }
+}
+//
+@media (max-width: 1000px) {
+  html {
+    font-size: 8px;
+  }
+}
+@media (max-width: 769px) {
+  html {
+    font-size: 7px;
+  }
+}
+@media (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
+}
+@media (max-width: 440px) {
+  html {
+    font-size: 10px;
+  }
+}
+//@include mq($until: tablet){}
+
+// Margins
+.mt-1 {
+  margin-top: 0.9rem;
+}
+.mt-2 {
+  margin-top: 1.8rem;
+}
+.mt-3 {
+  margin-top: 2.7rem;
+}
+.mt-4 {
+  margin-top: 3.6rem;
+}
+.mt-5 {
+  margin-top: 4.5rem;
+}
+.mb-1 {
+  margin-bottom: 0.9rem;
+}
+.mb-2 {
+  margin-bottom: 1.8rem;
+}
+.mb-3 {
+  margin-bottom: 2.7rem;
+}
+.mb-4 {
+  margin-bottom: 3.6rem;
+}
+.mb-5 {
+  margin-bottom: 4.5rem;
+}

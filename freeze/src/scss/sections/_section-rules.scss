@@ -1,0 +1,106 @@
+.section--rules {
+  position: relative;
+  .section-layer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10.5rem;
+    padding-bottom: 5.8rem;
+    .section__title {
+      width: 33vw;
+      min-width: 40rem;
+      margin-bottom: 1.2rem;
+      img {
+        width: 100%;
+      }
+    }
+
+    .section__text {
+      color: #fff;
+      max-width: 55%;
+      text-align: center;
+    }
+    .rules {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 8rem;
+      width: 100%;
+      &__text {
+        position: relative;
+        z-index: 10;
+        font-size: 1.9vw;
+        max-width: 70%;
+        left: -5%;
+        text-align: center;
+        color: rgb(209, 239, 250);
+        text-shadow: 0px -2px 2px rgb(255, 255, 255);
+        filter: blur(0.2) opacity(0.6);
+        // mix-blend-mode: screen;
+      }
+      &__item {
+        color: #fefefe;
+        font-family: $font1;
+        font-weight: 700;
+        width: calc(100% / 3);
+        height: 15rem;
+        font-size: 2.2rem;
+        background-repeat: no-repeat;
+        background-size: 90%;
+        opacity: 0;
+        background-position: center center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        img {
+          position: absolute;
+          width: 100%;
+        }
+        &_3 {
+          left: 1.5%;
+        }
+      }
+    }
+
+    @media (max-width: 600px) {
+      padding-top: 14.8rem;
+      padding-bottom: 3.6rem;
+      .section__title {
+        width: 85%;
+        min-width: auto;
+        margin-bottom: 1.8rem;
+        img {
+          width: 100%;
+        }
+      }
+      .rules {
+        gap: 3.6rem;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 5.7rem;
+
+        &__item {
+          color: #fefefe;
+          font-family: $font1;
+          font-weight: 700;
+          width: 100%;
+          height: 31vw;
+          left: 3%;
+
+          &_3 {
+            left: 7%;
+          }
+        }
+        &__text {
+          font-size: 6vw;
+        }
+      }
+      .section__text {
+        max-width: 100%;
+        margin-bottom: 2.4rem;
+      }
+    }
+  }
+}

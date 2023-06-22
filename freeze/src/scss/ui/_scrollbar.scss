@@ -1,0 +1,10 @@
+@import "../plugins/scrollbar";
+
+[data-scroll], .mscrollbar {overflow: hidden;
+  .mCSB_scrollTools{margin-right: -.6rem;
+    .mCSB_dragger .mCSB_dragger_bar{background: $color-lightgray2;}
+    .mCSB_draggerRail{width:.8rem;background:#f0f1f2 !important;}
+    &:hover{transform: translateX(-.2rem);
+      .mCSB_dragger .mCSB_dragger_bar{width: .8rem;background-color:$color-lightgray2 !important; }}
+  }
+}

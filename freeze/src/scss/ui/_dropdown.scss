@@ -1,0 +1,28 @@
+.dropdown{//@extend .text-field-holder;
+  cursor:pointer;
+  &-icon{position: absolute;right:0;width:.62em;height:.62em;top:calc(50% - .31em);
+    &:after{font-family: icomoon2;content:"\e945";font-size: 10px;position: absolute;right: 0;}
+  }
+  &-select{
+    position: absolute;z-index: -1;pointer-events: none;-moz-appearance: none;-webkit-appearance: none;opacity: 0;
+  }
+  &-field{//@extend .text-field;
+    @extend .ellipsis;height: 5rem;
+  }
+  &-content{background: #fff;border: 2px solid $color-dark;box-sizing: border-box;
+    width:100%;
+    position: absolute;display: none;
+    &__item{display: block;cursor: pointer;padding:1rem;
+      &:hover, &.is__selected{background:$color-light;}
+    }
+    &.active{display:block;transform:translateY(-2px)}
+    &:empty{display:none !important;}
+    &[data-scroll]{max-height: 216px;}
+  }
+
+  &.active{
+    .dropdown-icon{transform: rotate(180deg)}
+    .dropdown-content{display: block;z-index: 100;transform: translateY(-2px);}
+  }
+
+}

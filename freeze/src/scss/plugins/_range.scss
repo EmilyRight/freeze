@@ -1,0 +1,58 @@
+$primary: $color-black;
+$secondary: $color-light;
+$sliderHeight: .7rem;
+$handleSize: 3.8rem;
+$valueWidth: 9rem;
+$labelMarkerHeight: 1.2rem;
+
+
+.rangeslider{position: relative;height: $sliderHeight;width: 100%;background-color: $secondary;cursor:pointer;
+  border-right: 2px solid #fff;border-left: 2px solid #fff; box-sizing: border-box;
+  &-box{margin-bottom: 1rem;}
+  &-wrap{padding:2.2rem 0 6rem;
+    input{opacity: 0}
+
+    &.rangeslider--colored{
+      .rangeslider__fill,.rangeslider__handle{background:linear-gradient(to right, #ff32ce 0%, #5b99ff 100%) !important;}
+      .rangeslider__handle *{background: transparent !important;}
+    }
+  }
+  &-title{
+    .ico{font-size:2.6rem;}
+    span{display:inline-block;vertical-align: middle}
+    .text{padding:0 5px 0 15px}
+  }
+
+  &__handle{transition: background-color .2s;box-sizing:border-box;transform: translateX(1%);
+    width: $handleSize;height: $handleSize;
+    border-radius: 100%;border:2px solid #fff;overflow: hidden;
+    background-color:$primary;margin-left: -2px;margin-top: -2px;
+    touch-action: pan-y;cursor: pointer;display: inline-block;position: absolute;z-index: 3;top: -($handleSize/2) + ($sliderHeight/2);
+
+    .handle-arrows{position: relative;display: flex;height: 100%;
+      color:#fff;font-size:.7rem; justify-content:space-around;align-items:center;
+      i{display: inline-block;vertical-align: middle;width:2rem;height:1.2rem;text-align: center;}
+      .ico:first-of-type{transform: rotate(90deg)}
+      .ico:last-of-type{transform: rotate(-90deg)}
+    }
+  }
+
+  &__fill{position: absolute;top: 0;z-index: 1;height: 100%;background-color: $primary;}
+
+  &__labels{position: absolute;width: 100%;z-index: 2;display: flex;justify-content: space-between;padding:2rem .3rem;
+    &__label{font-size: 1.3rem;position: relative;color: $color-lightgray2;transition: .5s;
+      display: inline-block;vertical-align:top;text-align: center;min-width: 24px;
+      &.active{color:$color-dark}
+     &:first-child{transform: translateX(5%);margin-right: 2px}
+    // &:last-child{transform: translateX(-8%) }
+    }
+  }
+
+  // active state
+  &.rangeslider--active{
+    .rangeslider__handle{
+      &, *   { background-color: lighten($primary, 10%) }
+      *:before  { border-top-color: lighten($primary, 10%) }
+    }
+  }
+}

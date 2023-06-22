@@ -1,0 +1,56 @@
+//****** SITE ICONS******
+.icon-spinner{font-size: 1.6rem !important;
+  width: 1em;height:1em;border: .08em solid $color-gray;border-radius: 50%;
+  &:before,&:after{content:"";position: absolute;display: block;width:.08em;background-color:$color-gray;border-radius: .05em;-webkit-transform-origin: 50% 0;transform-origin: 50% 0;top:50%;left:.38em;}
+  &:before {height: .28em;animation: spin-clock 2s linear infinite;}
+  &:after {height: .35em;animation: spin-clock 1s linear infinite;}
+
+  @-webkit-keyframes spin-clock { to {-webkit-transform: rotate(360deg);transform: rotate(360deg)}}
+  @keyframes spin-clock{ to {-webkit-transform: rotate(360deg);transform: rotate(360deg)}
+  }
+}
+
+
+//****** icons SVG
+.icon-alert-small{
+  &:before{content:"";display: block;width: 1em;height: 1em;background: url(../img/icons/alert-small.svg) no-repeat 50%;background-size:.45em;}
+}
+.icon-success-small{
+  &:before{content:"";display: block;width: 1em;height: 1em;background: url(../img/icons/sucess-small.svg) no-repeat 50%;background-size:.45em;}
+}
+
+  // Шаблон для вывода иконок
+  %iconsvg{position: absolute;display: block;width: 1em;height: 1em;background-repeat: no-repeat;background-position: 50% 0;
+    background-size: 1em;
+    &:hover{background-position: 50% -1em}
+  }
+
+.icon-playmarket{@extend  %iconsvg;background-image:url(../img/icons/playmarket.svg); &:hover{background-position: 50% 0}}
+.icon-playmarket-off{@extend  %iconsvg;background-image:url(../img/icons/playmarket-off.svg);  &:hover{background-position: 50% 0}}
+.icon-appstore{@extend  %iconsvg;background-image:url(../img/icons/appstore.svg);  &:hover{background-position: 50% 0}}
+.icon-appstore-off{@extend  %iconsvg;background-image:url(../img/icons/appstore-off.svg); &:hover{background-position: 50% 0}}
+
+.icon-bookmark{@extend  %iconsvg;top:.1em; background-image:url(../img/icons/bookmark.svg)}
+.icon-soc-fb{@extend  %iconsvg;background-image:url(../img/icons/facebook.svg)}
+.icon-soc-vk{@extend  %iconsvg;background-image:url(../img/icons/vk.svg)}
+.icon-soc-ok{@extend  %iconsvg;background-image:url(../img/icons/ok.svg)}
+.icon-youtube{@extend  %iconsvg;background-image:url(../img/icons/you-tube.svg)}
+.icon-yamaps{@extend  %iconsvg;background-image:url(../img/icons/yandex-maps.svg)}
+.icon-tele2tv{@extend  %iconsvg;background-image:url(../img/icons/tv.svg)}
+.icon-zvooq{@extend  %iconsvg;background-image:url(../img/icons/zvooq.svg)}
+.icon-yanav{@extend  %iconsvg;background-image:url(../img/icons/yandex-nav.svg)}
+.icon-tamtam{@extend  %iconsvg;background-image:url(../img/icons/tamtam.svg)}
+.icon-viber{@extend  %iconsvg;background-image:url(../img/icons/viber.svg)}
+.icon-whatsapp{@extend  %iconsvg;background-image:url(../img/icons/whatsapp.svg)}
+.icon-twitter{@extend  %iconsvg;background-image:url(../img/icons/twitter.svg)}
+.icon-twitch{@extend  %iconsvg;background-image:url(../img/icons/twitch.svg)}
+.icon-insta{@extend  %iconsvg;background-image:url(../img/icons/instagram.svg)}
+
+
+.icon-transport{@extend  %iconsvg;background-image:url(../img/icons/transport.svg)}
+
+.ico{
+  &.ico--revert{background-position: 50% -1em;
+    &:hover{background-position: 50% 0}
+  }
+}

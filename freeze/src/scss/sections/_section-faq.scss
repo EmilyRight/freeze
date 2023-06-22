@@ -1,0 +1,203 @@
+.section--faq {
+  .section-layer {
+    padding-top: 0;
+    padding-bottom: 14rem;
+    display: flex;
+  }
+  .section-title {
+    margin-top: 1rem;
+    padding-left: 5rem;
+    max-width: 100%;
+  }
+  @media (max-width: $tablet) {
+    .section-layer {
+      padding: 0 0 5.4rem 0;
+      display: flex;
+    }
+  }
+}
+
+.faq {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  padding: 0 2rem;
+  &__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 1.2rem;
+    margin-bottom: 4.2rem;
+    cursor: pointer;
+    position: relative;
+    &::before {
+    }
+    &:hover {
+      .section-title__span {
+        &::before {
+          position: absolute;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .section-title {
+    margin: 0;
+    margin-right: 4rem;
+    text-align: center;
+    color: #fff;
+  }
+  // .section-title__span {
+  //   text-decoration: underline;
+  // }
+  &__open {
+    min-width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+  }
+  &__open-btn {
+    width: 1.95rem;
+  }
+
+  &__content {
+    transition: 0.5s;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  .item {
+    color: #000;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    margin-bottom: 1.8rem;
+    position: relative;
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      padding-bottom: 1.8rem;
+      border-bottom: 1px solid #fff;
+    }
+    &__close {
+      font-size: 4.4rem;
+      position: absolute;
+      overflow: hidden;
+      right: 3.5rem;
+      top: 4rem;
+      transform: translate(0, -50%);
+      border-radius: 50%;
+      transition: 0.3s ease-in-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &__close-icon {
+      width: 1.95rem;
+      position: relative;
+      user-select: none;
+      img {
+        max-width: 100%;
+      }
+    }
+    &__title {
+      font-family: $font1;
+      user-select: none;
+      flex-basis: 75%;
+      color: #fff;
+    }
+    &__text {
+      font-family: $font1;
+      color: #fff;
+      overflow: hidden;
+      box-sizing: border-box;
+      max-height: 0;
+      opacity: 0;
+      transition: 0.3s ease-in-out;
+    }
+
+    &.active {
+      .item__close-icon {
+        transform: rotateX(180deg);
+      }
+      .item__text {
+        max-height: 100rem;
+        opacity: 1;
+      }
+    }
+  }
+
+  @media (max-width: $tablet) {
+    display: block;
+    border-radius: 0;
+    padding: 0;
+    &__content {
+      max-width: 100%;
+    }
+    &__title {
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      text-align: center;
+      margin: 0;
+    }
+    .section-title {
+      margin-right: 0;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+
+    &__item {
+      padding: 0;
+    }
+
+    .item {
+      padding: 1.8rem 1.8rem 0;
+      margin: 0 auto;
+      margin-bottom: 0;
+      &__close {
+        right: 1.8rem;
+        &:before,
+        &:after {
+          left: 19%;
+          top: 48%;
+          width: 2rem;
+        }
+      }
+      &__title {
+        min-height: auto;
+        margin-bottom: 0;
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+        flex-basis: 90%;
+      }
+      &__content {
+        padding-top: 0;
+      }
+      &__text {
+        padding: 0;
+      }
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .section-title {
+      max-width: 80%;
+    }
+    .faq__open {
+      min-width: 4rem;
+      height: 4rem;
+    }
+  }
+}

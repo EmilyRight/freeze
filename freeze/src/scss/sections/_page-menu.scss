@@ -1,0 +1,43 @@
+.header-menu {
+}
+.menu {
+  padding: 0 0 0.5rem;
+  margin: 0;
+  display: flex;
+  &__item {
+    display: block;
+    list-style: none;
+    font-size: 1.8rem;
+    margin-left: 3.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: opacity 0.4s ease-in-out;
+    &:hover {
+      opacity: 0.8;
+    }
+    &.active {
+      color: #ffae0f;
+    }
+  }
+}
+
+//sticky
+.teaser-heading {
+  &.sticky {
+    position: fixed;
+    z-index: 10;
+    top: -7.9rem;
+    transform: translateY(7.9rem);
+    padding: 2rem 0;
+    background: #fff;
+    box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.1);
+    transition: transofm 1.4s;
+  }
+  .top-line {
+  }
+  .header-menu {
+  }
+}

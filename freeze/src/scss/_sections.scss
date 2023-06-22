@@ -1,0 +1,102 @@
+////// Both sections ///////
+.section-layer {
+  @extend .container;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 8rem;
+  padding-top: 7rem;
+  @media (max-width: 600px) {
+    padding: 3.6rem 1.8rem;
+  }
+}
+.box-content {
+  max-width: 65%;
+  width: 54rem;
+  flex: 54rem 1 0;
+  &__subtitle {
+    font-size: 2.2rem;
+    line-height: 2.8rem;
+    display: block;
+    text-align: center;
+  }
+  &__text {
+    p {
+      font-size: 2.2rem;
+      line-height: 2.8rem;
+      margin-bottom: 1.8rem;
+      &:last-of-type {
+        margin-bottom: 3.6rem;
+      }
+    }
+  }
+  @media (max-width: 600px) {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    .btn {
+      box-sizing: border-box;
+      display: inline-block;
+      margin-right: auto;
+      margin-left: auto;
+      min-width: 17.2rem;
+      padding: 1.7rem 3.5rem;
+      text-align: center;
+    }
+    .box-content__title,
+    .box-content__text {
+      text-align: center;
+      p {
+        font-size: 1.6rem;
+        line-height: 2.8rem;
+      }
+    }
+  }
+}
+.box-pic {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex: 100% 1 1;
+}
+/////////////end Both sections/////
+
+.section--join {
+  .section-layer {
+    justify-content: space-between;
+  }
+  .box-content {
+    flex: 50% 0 0;
+    max-width: 100%;
+    &__text {
+      width: 47.9rem;
+      max-width: 100%;
+    }
+  }
+  .box-pic {
+    text-align: center;
+    justify-content: center;
+    img {
+      max-width: 100%;
+      width: 42rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .section-layer {
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+      }
+    }
+  }
+}
+
+@import "sections/teaser";
+@import "sections/section-rules"; 
+@import "sections/section-faq";
+@import "sections/ice-modal";
+@import "sections/section-app";
+@import "sections/footer";
