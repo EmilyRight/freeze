@@ -1,6 +1,7 @@
 {
   "name": "freeze",
   "version": "1.0.0",
+  "browserslist": "> 0.5%, last 3 versions, not dead",
   "scripts": {
     "p": "parcel",
     "p2": "node node_modules/parcel/lib/bin.js",
