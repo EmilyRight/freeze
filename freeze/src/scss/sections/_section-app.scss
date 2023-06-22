@@ -192,6 +192,9 @@
 @media (max-width: 600px) {
   .section--app {
     padding-bottom: 1.2rem;
+    &::after {
+      display: none;
+    }
     .section-layer {
       display: flex;
       flex-wrap: wrap;
