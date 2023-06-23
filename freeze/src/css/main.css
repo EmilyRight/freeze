@@ -1178,7 +1178,7 @@ body .background-wrapper {
   border-radius: 50%;
   position: static;
   overflow: hidden;
-  background-image: url("../img/page/freeze.png");
+  background-image: url("../img/page/freeze-desktop.png");
   background-size: 100vw 100vh;
   background-position: center center;
   background-repeat: no-repeat;
@@ -1188,6 +1188,11 @@ body .background-wrapper {
   animation-iteration-count: 1;
   animation-direction: normal;
   animation-fill-mode: forwards;
+}
+@media (max-width: 600px) {
+  .ice-modal .ice-window {
+    background-image: url("../img/page/freeze.png");
+  }
 }
 .ice-modal.hidden {
   display: none;
