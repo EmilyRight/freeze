@@ -61,7 +61,10 @@ export default class Animations {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
+          console.log(entries);
           this.setAnimation();
+        } else {
+          this.stopAnimations()
         }
       });
     });
@@ -70,7 +73,7 @@ export default class Animations {
 
   setAnimation() {
     this.animatedItems.forEach((item, i) => {
-      this.optionsForSideAnimations.delay = 500 * (i + 1);
+      this.optionsForSideAnimations.delay = 700 * (i + 1);
       if (this.screenWidth < 600) {
         if (i % 2 !== 0) {
           item.animate(this.keyframesForLeft, this.optionsForSideAnimations);
@@ -83,6 +86,11 @@ export default class Animations {
     });
   }
 
+  stopAnimations() {
+    this.animatedItems.forEach((item, i) => {
+      item.getAnimations().map((animation) => animation.reverse())
+    })
+  }
   init() {
     this.setAnimationOnScroll();
   }

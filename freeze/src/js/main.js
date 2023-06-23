@@ -21,9 +21,7 @@ window.addEventListener('load', () => {
   new WOW().init();
   gtmSet();
 
-  if (animations.screenWidth < 600) {
-    freeze();
-  }
+  freeze();
 });
 
 function videoTeaser() {
@@ -130,24 +128,26 @@ function toggleClasses() {
 function freeze() {
   const connectBtn = document.querySelector('.btn-primary');
   const modal = document.querySelector('.ice-modal');
-
-  if (document.documentElement.clientWidth <= 600) {
-    connectBtn.addEventListener('click', (event) => {
-      event.preventDefault();
-      toggleClasses();
-      modal.addEventListener('animationend', () => {
-        onAnimationComplete();
-      });
+  connectBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    toggleClasses();
+    modal.addEventListener('animationend', () => {
+      onAnimationComplete();
     });
-  }
+  });
+
 }
 
 function onAnimationComplete() {
-  const connectBtn = document.querySelector('.btn-primary');
-  window.location = connectBtn.href;
+  redirect()
   setTimeout(() => {
     toggleClasses();
   }, 5000);
+}
+
+function redirect() {
+  const connectBtn = document.querySelector('.btn-primary');
+  window.open(connectBtn.href,'_blank');
 }
 
 /// Detect device
