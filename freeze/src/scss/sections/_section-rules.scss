@@ -1,5 +1,14 @@
 .section--rules {
   position: relative;
+  background-image: linear-gradient(to bottom, #ffffff00, #161010 80%),
+    url(../img/page/ice-bg.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  @media (max-width: 600px) {
+    background-repeat: no-repeat;
+    background-image: linear-gradient(to bottom, #ffffff00, #161010 95%),
+      url(../img/page/ice-bg_mob.jpg);
+  }
   .section-layer {
     display: flex;
     flex-direction: column;
@@ -8,12 +17,20 @@
     padding-top: 10.5rem;
     padding-bottom: 5.8rem;
     .section__title {
-      width: 33vw;
-      min-width: 40rem;
-      margin-bottom: 1.2rem;
-      img {
-        width: 100%;
-      }
+      text-align: center;
+      background-image: linear-gradient(to right, #212f48, #183553);
+      // background-color: #565656;
+      color: transparent;
+      text-shadow: 2px 0px 2px rgba(255, 255, 255, 0.088);
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+      // width: 33vw;
+      // min-width: 40rem;
+      // margin-bottom: 1.2rem;
+      // img {
+      //   width: 100%;
+      // }
     }
 
     .section__text {

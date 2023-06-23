@@ -41,14 +41,6 @@ body {
     justify-content: space-between;
     background-color: #101216;
   }
-  .background-wrapper {
-    background-image: url(../img/page/ice-bg-large1.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    @media (max-width: 600px) {
-      background-image: url(../img/page/ice-bg-mob.png);
-    }
-  }
 }
 
 .page {
