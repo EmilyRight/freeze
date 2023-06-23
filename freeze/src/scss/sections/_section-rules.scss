@@ -1,12 +1,12 @@
 .section--rules {
   position: relative;
-  background-image: linear-gradient(to bottom, #ffffff00, #161010 80%),
+  background-image: linear-gradient(to bottom, #ffffff00, #101216 80%),
     url(../img/page/ice-bg.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
   @media (max-width: 600px) {
     background-repeat: no-repeat;
-    background-image: linear-gradient(to bottom, #ffffff00, #161010 95%),
+    background-image: linear-gradient(to bottom, #ffffff00, #101216 95%),
       url(../img/page/ice-bg_mob.jpg);
   }
   .section-layer {
