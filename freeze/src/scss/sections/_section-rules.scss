@@ -25,15 +25,9 @@
       -webkit-background-clip: text;
       -moz-background-clip: text;
       background-clip: text;
-      // width: 33vw;
-      // min-width: 40rem;
-      // margin-bottom: 1.2rem;
-      // img {
-      //   width: 100%;
-      // }
     }
 
-    .section__text {
+    .subtitle {
       color: #fff;
       max-width: 55%;
       text-align: center;
@@ -42,7 +36,6 @@
       list-style: none;
       display: flex;
       flex-wrap: wrap;
-      margin-bottom: 8rem;
       width: 100%;
       &__text {
         position: relative;
@@ -96,7 +89,7 @@
         gap: 3.6rem;
         padding: 0;
         margin: 0;
-        margin-bottom: 5.7rem;
+        margin-bottom: 2.4rem;
 
         &__item {
           color: #fefefe;
@@ -114,7 +107,7 @@
           font-size: 6vw;
         }
       }
-      .section__text {
+      .subtitle {
         max-width: 100%;
         margin-bottom: 2.4rem;
       }

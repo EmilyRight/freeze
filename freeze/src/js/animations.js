@@ -63,8 +63,7 @@ export default class Animations {
         if (entry.isIntersecting) {
           console.log(entries);
           this.setAnimation();
-        } else {
-          this.stopAnimations()
+          observer.unobserve(this.scrollObserverElement);
         }
       });
     });
@@ -86,11 +85,16 @@ export default class Animations {
     });
   }
 
-  stopAnimations() {
-    this.animatedItems.forEach((item, i) => {
-      item.getAnimations().map((animation) => animation.reverse())
-    })
-  }
+  // stopAnimations() {
+  //   this.animatedItems.forEach((item, i) => {
+  //     item.getAnimations().map((animation) => {
+  //       animation.finished().then(() => {
+  //         animation.cancel()
+  //       })
+  //       console.log(animation);
+  //     })
+  //   })
+  // }
   init() {
     this.setAnimationOnScroll();
   }
