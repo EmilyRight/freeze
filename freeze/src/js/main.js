@@ -12,6 +12,7 @@ require('jquery.easing');
 /// /////// DocReady //////////
 const animations = new Animations();
 window.addEventListener('load', () => {
+  const connectBtn = document.querySelector('.btn-primary');
   goNextSection();
   detectDevice();
   faqOpener();
@@ -21,7 +22,7 @@ window.addEventListener('load', () => {
   new WOW().init();
   gtmSet();
 
-  freeze();
+  freeze(connectBtn);
 });
 
 function videoTeaser() {
@@ -125,23 +126,24 @@ function toggleClasses() {
   modal.classList.toggle('hidden');
 }
 
-function freeze() {
+function freeze(btn) {
   const connectBtn = document.querySelector('.btn-primary');
   const modal = document.querySelector('.ice-modal');
-  connectBtn.addEventListener('click', (event) => {
+  btn.addEventListener('click', (event) => {
     event.preventDefault();
     toggleClasses();
     modal.addEventListener('animationend', () => {
-      onAnimationComplete();
+      onAnimationComplete(btn);
     });
   });
 
 }
 
-function onAnimationComplete() {
+function onAnimationComplete(btn) {
   redirect()
   setTimeout(() => {
     toggleClasses();
+    btn.removeEventListener()
   }, 5000);
 }
 

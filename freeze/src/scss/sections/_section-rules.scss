@@ -86,7 +86,7 @@
         }
       }
       .rules {
-        gap: 3.6rem;
+        // gap: 3.6rem;
         padding: 0;
         margin: 0;
         margin-bottom: 2.4rem;
@@ -98,9 +98,11 @@
           width: 100%;
           height: 31vw;
           left: 3%;
+          margin-bottom: 3rem;
 
           &_3 {
             left: 7%;
+            margin-bottom: 0;
           }
         }
         &__text {
