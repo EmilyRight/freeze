@@ -61,7 +61,6 @@ export default class Animations {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          console.log(entries);
           this.setAnimation();
           observer.unobserve(this.scrollObserverElement);
         }
@@ -85,16 +84,6 @@ export default class Animations {
     });
   }
 
-  // stopAnimations() {
-  //   this.animatedItems.forEach((item, i) => {
-  //     item.getAnimations().map((animation) => {
-  //       animation.finished().then(() => {
-  //         animation.cancel()
-  //       })
-  //       console.log(animation);
-  //     })
-  //   })
-  // }
   init() {
     this.setAnimationOnScroll();
   }

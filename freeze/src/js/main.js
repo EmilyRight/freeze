@@ -141,9 +141,9 @@ function freeze(btn) {
 
 function onAnimationComplete(btn) {
   redirect()
+  btn.removeEventListener()
   setTimeout(() => {
     toggleClasses();
-    btn.removeEventListener()
   }, 5000);
 }
 
