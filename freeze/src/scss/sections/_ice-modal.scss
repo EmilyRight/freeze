@@ -28,8 +28,15 @@
       background-image: url("../img/page/freeze.png");
     }
   }
+
   &.hidden {
     display: none;
+  }
+
+  &.desktop {
+    .ice-window {
+      animation-duration: 2s;
+    }
   }
 }
 

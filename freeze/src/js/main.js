@@ -139,6 +139,9 @@ function getEventType() {
 
 function handleFreeze(event) {
   const modal = document.querySelector('.ice-modal');
+  if (animations.screenWidth > 600) {
+    modal.classList.add('desktop');
+  }
   event.preventDefault();
   toggleClasses();
   console.log('appear');
