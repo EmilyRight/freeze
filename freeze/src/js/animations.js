@@ -71,7 +71,7 @@ export default class Animations {
 
   setAnimation() {
     this.animatedItems.forEach((item, i) => {
-      this.optionsForSideAnimations.delay = 700 * (i + 1);
+      this.optionsForSideAnimations.delay = 700 * i;
       if (this.screenWidth < 600) {
         if (i % 2 !== 0) {
           item.animate(this.keyframesForLeft, this.optionsForSideAnimations);
