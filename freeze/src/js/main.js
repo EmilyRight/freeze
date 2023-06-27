@@ -102,7 +102,6 @@ function goNextSection() {
       sectionsList.forEach((el, index) => {
         if (el === btnParentNode) {
           sectionToScrollTo = sectionsList[index + 1];
-
           scrollToElement(sectionToScrollTo);
         }
       });
@@ -125,13 +124,15 @@ function toggleClasses() {
   modal.classList.toggle('hidden');
 }
 
-function freeze(btn) {
+function freeze() {
   const connectBtn = document.querySelector('.btn-primary');
   const modal = document.querySelector('.ice-modal');
   connectBtn.addEventListener('click', (event) => {
     event.preventDefault();
     toggleClasses();
+    console.log('hey click');
     modal.addEventListener('animationend', () => {
+      console.log('hey animationend');
       onAnimationComplete();
     });
   });
@@ -139,6 +140,7 @@ function freeze(btn) {
 }
 
 function onAnimationComplete() {
+  console.log('hey onAnimationComplete');
   redirect()
   setTimeout(() => {
     toggleClasses();
