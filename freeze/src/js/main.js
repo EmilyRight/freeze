@@ -11,8 +11,10 @@ require('jquery.easing');
 
 /// /////// DocReady //////////
 const animations = new Animations();
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', function(){
   const connectBtn = document.querySelector('.btn-primary');
+
+  const btnEvent = getEventType()
   goNextSection();
   detectDevice();
   faqOpener();
@@ -21,7 +23,7 @@ window.addEventListener('load', () => {
   videoTeaser();
   new WOW().init();
   gtmSet();
-  freeze(connectBtn)
+  connectBtn.addEventListener(btnEvent, handleFreeze)
 
 });
 
@@ -126,13 +128,12 @@ function toggleClasses() {
 }
 
 
-function freeze(btn) {
-  let event = 'click'
+function getEventType() {
+  let eventName = 'click'
   if(document.body.classList.contains('platform_ios')) {
-    event = 'touchstart'
+    eventName = 'touchstart'
   }
-
-  btn.addEventListener(event,  handleFreeze)
+  return eventName
 }
 
 function handleFreeze(event) {
@@ -140,15 +141,13 @@ function handleFreeze(event) {
   const modal = document.querySelector('.ice-modal');
   event.preventDefault();
   toggleClasses();
-  console.log('hey click');
-  modal.addEventListener('animationend', () => {
-    console.log('hey animationend');
-    onAnimationComplete();
-  });
+  console.log('click', modal);
+  modal.addEventListener('animationend', onAnimationComplete);
 }
 
 function onAnimationComplete() {
-  console.log('hey onAnimationComplete');
+  console.log(this);
+  console.log('onAnimationComplete', this);
   redirect()
   setTimeout(() => {
       toggleClasses();
@@ -156,14 +155,16 @@ function onAnimationComplete() {
 }
 
 function redirect() {
+  const modal = document.querySelector('.ice-modal');
   const link = document.querySelector('.btn-primary')
   const path = link.href;
+  const btnEvent = getEventType()
   if(animations.screenWidth <= 600) {
     window.location.href = path
   } else {
     window.open(path,'_blank');
   }
-  link.removeEventListener('click', handleFreeze)
+  modal.removeEventListener('animationend', onAnimationComplete)
   console.log('hey remove');
 }
 
