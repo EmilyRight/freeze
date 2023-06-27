@@ -21,10 +21,18 @@ window.addEventListener('load', () => {
   videoTeaser();
   new WOW().init();
   gtmSet();
-  connectBtn.addEventListener('click', handleFreeze);
+  freeze(connectBtn)
 
 });
 
+function freeze(btn) {
+  let event = 'click'
+  if(document.body.classList.contains('platform_ios')) {
+    event = 'touchstart'
+  }
+
+  btn.addEventListener(event,  handleFreeze)
+}
 function videoTeaser() {
   const startedClass = 'is_started';
   const savingClass = 'device-suspended-mode';
@@ -130,6 +138,7 @@ function toggleClasses() {
 // }
 
 function handleFreeze(event) {
+  console.log('event', event);
   const modal = document.querySelector('.ice-modal');
   event.preventDefault();
   toggleClasses();
