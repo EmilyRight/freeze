@@ -141,31 +141,28 @@ function handleFreeze(event) {
   const modal = document.querySelector('.ice-modal');
   event.preventDefault();
   toggleClasses();
-  console.log('click', modal);
+  console.log('click', this);
   modal.addEventListener('animationend', onAnimationComplete);
 }
 
 function onAnimationComplete() {
-  console.log(this);
-  console.log('onAnimationComplete', this);
+  this.removeEventListener('animationend', onAnimationComplete)
+  console.log('hey remove');
   redirect()
   setTimeout(() => {
+    console.log('toggle');
       toggleClasses();
   }, 5000);
 }
 
 function redirect() {
-  const modal = document.querySelector('.ice-modal');
   const link = document.querySelector('.btn-primary')
   const path = link.href;
-  const btnEvent = getEventType()
   if(animations.screenWidth <= 600) {
     window.location.href = path
   } else {
     window.open(path,'_blank');
   }
-  modal.removeEventListener('animationend', onAnimationComplete)
-  console.log('hey remove');
 }
 
 /// Detect device
