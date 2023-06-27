@@ -21,8 +21,8 @@ window.addEventListener('load', () => {
   videoTeaser();
   new WOW().init();
   gtmSet();
+  connectBtn.addEventListener('click', handleFreeze);
 
-  freeze(connectBtn);
 });
 
 function videoTeaser() {
@@ -125,9 +125,9 @@ function toggleClasses() {
   modal.classList.toggle('hidden');
 }
 
-function freeze(btn) {
-  btn.addEventListener('click', handleFreeze);
-}
+// function freeze(btn) {
+
+// }
 
 function handleFreeze(event) {
   const modal = document.querySelector('.ice-modal');
