@@ -12,6 +12,7 @@ require('jquery.easing');
 /// /////// DocReady //////////
 const animations = new Animations();
 window.addEventListener('load', () => {
+  const connectBtn = document.querySelector('.btn-primary');
   goNextSection();
   detectDevice();
   faqOpener();
@@ -21,7 +22,7 @@ window.addEventListener('load', () => {
   new WOW().init();
   gtmSet();
 
-  freeze();
+  freeze(connectBtn);
 });
 
 function videoTeaser() {
@@ -124,19 +125,19 @@ function toggleClasses() {
   modal.classList.toggle('hidden');
 }
 
-function freeze() {
-  const connectBtn = document.querySelector('.btn-primary');
-  const modal = document.querySelector('.ice-modal');
-  connectBtn.addEventListener('click', (event) => {
-    event.preventDefault();
-    toggleClasses();
-    console.log('hey click');
-    modal.addEventListener('animationend', () => {
-      console.log('hey animationend');
-      onAnimationComplete();
-    });
-  });
+function freeze(btn) {
+  btn.addEventListener('click', handleFreeze);
+}
 
+function handleFreeze(event) {
+  const modal = document.querySelector('.ice-modal');
+  event.preventDefault();
+  toggleClasses();
+  console.log('hey click');
+  modal.addEventListener('animationend', () => {
+    console.log('hey animationend');
+    onAnimationComplete();
+  });
 }
 
 function onAnimationComplete() {
@@ -148,12 +149,15 @@ function onAnimationComplete() {
 }
 
 function redirect() {
-  const path = document.querySelector('.btn-primary').href;
+  const link = document.querySelector('.btn-primary')
+  const path = link.href;
   if(animations.screenWidth <= 600) {
     window.location.href = path
   } else {
     window.open(path,'_blank');
   }
+  link.removeEventListener('click', handleFreeze)
+  console.log('hey remove');
 }
 
 /// Detect device
