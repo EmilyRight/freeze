@@ -79,6 +79,12 @@
       }
     }
 
+    .platform_ios & {
+      .rules__text {
+        filter: blur(0) opacity(0.6);
+      }
+    }
+
     @media (max-width: 600px) {
       padding-top: 14.8rem;
       padding-bottom: 3.6rem;

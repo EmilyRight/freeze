@@ -25,14 +25,6 @@ window.addEventListener('load', () => {
 
 });
 
-function freeze(btn) {
-  let event = 'click'
-  if(document.body.classList.contains('platform_ios')) {
-    event = 'touchstart'
-  }
-
-  btn.addEventListener(event,  handleFreeze)
-}
 function videoTeaser() {
   const startedClass = 'is_started';
   const savingClass = 'device-suspended-mode';
@@ -133,9 +125,15 @@ function toggleClasses() {
   modal.classList.toggle('hidden');
 }
 
-// function freeze(btn) {
 
-// }
+function freeze(btn) {
+  let event = 'click'
+  if(document.body.classList.contains('platform_ios')) {
+    event = 'touchstart'
+  }
+
+  btn.addEventListener(event,  handleFreeze)
+}
 
 function handleFreeze(event) {
   console.log('event', event);
@@ -153,7 +151,7 @@ function onAnimationComplete() {
   console.log('hey onAnimationComplete');
   redirect()
   setTimeout(() => {
-    toggleClasses();
+      toggleClasses();
   }, 5000);
 }
 
