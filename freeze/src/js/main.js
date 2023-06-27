@@ -25,9 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   gtmSet();
   connectBtn.addEventListener(btnEvent, handleFreeze);
 });
-window.onpopstate = function (event) {
-  console.log(`location: ${document.location}, state: ${JSON.stringify(event.state)}`);
-};
+
 function videoTeaser() {
   const startedClass = 'is_started';
   const savingClass = 'device-suspended-mode';
