@@ -11,10 +11,10 @@ require('jquery.easing');
 
 /// /////// DocReady //////////
 const animations = new Animations();
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', () => {
   const connectBtn = document.querySelector('.btn-primary');
 
-  const btnEvent = getEventType()
+  const btnEvent = getEventType();
   goNextSection();
   detectDevice();
   faqOpener();
@@ -23,11 +23,10 @@ document.addEventListener('DOMContentLoaded', function(){
   videoTeaser();
   new WOW().init();
   gtmSet();
-  connectBtn.addEventListener(btnEvent, handleFreeze)
-
+  connectBtn.addEventListener(btnEvent, handleFreeze);
 });
-window.onpopstate = function(event) {
-  console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+window.onpopstate = function (event) {
+  console.log(`location: ${document.location}, state: ${JSON.stringify(event.state)}`);
 };
 function videoTeaser() {
   const startedClass = 'is_started';
@@ -130,13 +129,12 @@ function toggleClasses() {
   console.log('toggle');
 }
 
-
 function getEventType() {
-  let eventName = 'click'
-  if(document.body.classList.contains('platform_ios')) {
-    eventName = 'touchstart'
+  let eventName = 'click';
+  if (document.body.classList.contains('platform_ios')) {
+    eventName = 'touchstart';
   }
-  return eventName
+  return eventName;
 }
 
 function handleFreeze(event) {
@@ -148,22 +146,21 @@ function handleFreeze(event) {
 }
 
 function onAnimationComplete() {
-  this.removeEventListener('animationend', onAnimationComplete)
-  redirect()
+  this.removeEventListener('animationend', onAnimationComplete);
+  redirect();
   setTimeout(() => {
-      toggleClasses();
-      console.log('disappear');
+    toggleClasses();
+    console.log('disappear');
   }, 5000);
 }
 
 function redirect() {
-  const link = document.querySelector('.btn-primary')
+  const link = document.querySelector('.btn-primary');
   const path = link.href;
-  if(animations.screenWidth <= 600) {
+  if (animations.screenWidth <= 600) {
     window.location.href = path;
   } else {
-    window.open(path,'_blank');
-
+    window.open(path, '_blank');
   }
 }
 
