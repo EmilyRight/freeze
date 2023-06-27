@@ -26,7 +26,9 @@ document.addEventListener('DOMContentLoaded', function(){
   connectBtn.addEventListener(btnEvent, handleFreeze)
 
 });
-
+window.onpopstate = function(event) {
+  console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+};
 function videoTeaser() {
   const startedClass = 'is_started';
   const savingClass = 'device-suspended-mode';
@@ -125,6 +127,7 @@ function toggleClasses() {
   body.classList.toggle('noscroll');
   page.classList.toggle('freezed');
   modal.classList.toggle('hidden');
+  console.log('toggle');
 }
 
 
@@ -137,21 +140,19 @@ function getEventType() {
 }
 
 function handleFreeze(event) {
-  console.log('event', event);
   const modal = document.querySelector('.ice-modal');
   event.preventDefault();
   toggleClasses();
-  console.log('click', this);
+  console.log('appear');
   modal.addEventListener('animationend', onAnimationComplete);
 }
 
 function onAnimationComplete() {
   this.removeEventListener('animationend', onAnimationComplete)
-  console.log('hey remove');
   redirect()
   setTimeout(() => {
-    console.log('toggle');
       toggleClasses();
+      console.log('disappear');
   }, 5000);
 }
 
@@ -159,9 +160,10 @@ function redirect() {
   const link = document.querySelector('.btn-primary')
   const path = link.href;
   if(animations.screenWidth <= 600) {
-    window.location.href = path
+    window.location.href = path;
   } else {
     window.open(path,'_blank');
+
   }
 }
 
